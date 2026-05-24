@@ -1,0 +1,235 @@
+* Яркие базовые цвета */
+:root {
+    --primary: #ff6b6b;
+    --secondary: #4ecdc4;
+    --accent: #ffe66d;
+    --dark: #292d3e;
+    --light: #f5f5f5;
+    --purple: #9c88ff;
+    --pink: #ff79c6;
+    --teal: #1abc9c;
+}
+
+/* Сброс стилей и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg,
+        var(--primary) 0%,
+        var(--purple) 50%,
+        var(--pink) 100%);
+    min-height: 100vh;
+    color: var(--light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка с неоновым свечением */
+header {
+    background: rgba(41, 45, 62, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--purple);
+    box-shadow: 0 0 20px rgba(156, 136, 255, 0.3);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(255, 230, 109, 0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--purple));
+    transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Герой‑секция с анимированным градиентом */
+.hero {
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--accent), var(--secondary), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    opacity: 0.9;
+}
+
+/* Яркие кнопки с анимацией */
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), var(--pink));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+/* Карточки с неоновыми эффектами */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 3rem 0;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    left: 150%;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--purple);
+}
+
+.card h3 {
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(255, 230, 109, 0.3);
+}
+
+.card p {
+    opacity: 0.9;
+}
+
+/* Секция контента с цветными акцентами */
+.content {
+    padding: 5rem 0;
+}
+
+.content .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3.5rem;
+}
+
+article {
+    background: rgba(41, 45, 62, 0.8);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-left: 5px solid var(--secondary);
+}
+
+article:hover {
+    transform: scale(1.03);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+
